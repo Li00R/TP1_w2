@@ -23,9 +23,15 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="">Home</a>
                         </li>
-                        <li>
-                            <a class="nav-link" aria-current="page" href="Login">Login</a>
-                        </li>
+                        {if !isset($smarty.session.USER_ID)}
+                            <li class="nav-item">
+                              <a class="nav-link" aria-current="page" href="Login">Login</a>
+                            </li>
+                          {else} 
+                            <li class="nav-item ml-auto">
+                              <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
+                            </li>
+                          {/if}
                     </ul>
                 </div>
               </div>

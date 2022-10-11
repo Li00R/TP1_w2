@@ -2,6 +2,7 @@
 
 require_once './controllers/champs_controller.php';
 require_once './controllers/roles_controller.php';
+require_once './controllers/auth_controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -17,6 +18,7 @@ $params = explode('/', $action);
 $Champs_Controller = new Champs_controller();
 $Rols_Controller = new Roles_controller();
 
+session_start();
 
 // tabla de ruteo
 switch ($params[0]) {
@@ -31,6 +33,14 @@ switch ($params[0]) {
     case 'ChampsByRol':
         $id = $params[1];
         $Champs_Controller->Show_Champs_By_Rol($id);
+        break;
+    case 'Login':
+        $Auth_Controller = new Auth_Controller();
+        $Auth_Controller->ShowFormLogin();
+        break;
+    case 'validate':
+        $authController = new Auth_Controller();
+        $authController->validateUser();
         break;
     default:
         echo('404 Page not found');
