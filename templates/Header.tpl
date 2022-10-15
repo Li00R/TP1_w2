@@ -20,17 +20,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="">Home</a>
-                        </li>
                         {if !isset($smarty.session.USER_ID)}
                             <li class="nav-item">
-                              <a class="nav-link" aria-current="page" href="Login">Login</a>
+                                <a class="nav-link" aria-current="page" href="Login">Login</a>
                             </li>
                           {else} 
-                            <li class="nav-item ml-auto">
-                              <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
-                            </li>
+                              <li class="nav-item ml-auto">
+                                  <a class="nav-link" aria-current="page" href="Logout">Logout ({$smarty.session.USER_EMAIL})</a>
+                              </li>
                           {/if}
                     </ul>
                 </div>

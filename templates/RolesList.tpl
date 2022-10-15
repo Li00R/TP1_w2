@@ -2,7 +2,9 @@
 <h2>Lista de Roles</h2>
 <ul class="list-group">
     {foreach from=$roles item=$rol}
-        <a class="list-group-item list-group-item-dark list-group-item list-group-item-action list-group-item-primary"  href="ChampsByRol/{$rol->ID_rol}"> {$rol->Rol_name}</a>
+        <li class="d-flex justify-content-between align-items-center">
+            <a class="nav-link list-group-item list-group-item-action"  href="ChampsByRol/{$rol->ID_rol}"> {$rol->Rol_name}</a>
+        </li>
     {/foreach}
 </ul>
 

@@ -38,6 +38,10 @@ switch ($params[0]) {
         $Auth_Controller = new Auth_Controller();
         $Auth_Controller->ShowFormLogin();
         break;
+    case "Logout":
+        $Auth_Controller = new Auth_Controller();
+        $Auth_Controller->Logout();
+        break;
     case 'validate':
         $authController = new Auth_Controller();
         $authController->validateUser();
