@@ -27,16 +27,16 @@ switch ($params[0]) {
         $Rols_Controller->Show_All_Roles();
         break;
     case 'ChampDetail':
-        $name = $params[1];
+        $name= $params[1];
         $Champs_Controller->Champ_Detail($name);
         break;
     case 'ChampsByRol':
-        $id = $params[1];
+        $id= $params[1];
         $Champs_Controller->Show_Champs_By_Rol($id);
         break;
     case 'Login':
         $Auth_Controller = new Auth_Controller();
-        $Auth_Controller->ShowFormLogin();
+        $Auth_Controller->Show_Form_Login();
         break;
     case "Logout":
         $Auth_Controller = new Auth_Controller();
@@ -44,7 +44,18 @@ switch ($params[0]) {
         break;
     case 'validate':
         $authController = new Auth_Controller();
-        $authController->validateUser();
+        $authController->Validate_User();
+        break;
+    case 'AgregarChamp':
+        $Champs_Controller->Agregar_Champ();
+        break;
+    case 'EditChamp':
+        $id= $params[1];
+        $Champs_Controller->Edit_Champ($id);
+        break;
+    case 'DeleteChamp':
+        $id= $params[1];
+        $Champs_Controller->Delete_Champ($id);
         break;
     default:
         echo('404 Page not found');

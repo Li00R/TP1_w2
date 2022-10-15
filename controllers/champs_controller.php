@@ -25,6 +25,18 @@
             $champs = $this->model->GetChampsByRol($id);
             $this->view->ShowChamps($champs);
         }
-    
+        
+        public function Agregar_Champ() {
+
+        }
+
+        public function Edit_Champ($id) {
+
+        }
+
+        public function Delete_Champ($id) {
+            
+        }
+
     }
 

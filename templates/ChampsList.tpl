@@ -9,8 +9,8 @@
         <li class="d-flex justify-content-between align-items-center">
             <a class="nav-link list-group-item list-group-item-action" href="ChampDetail/{$champ->Champ_name}"> <b>{$champ->Champ_name}</b> </a>    
             {if isset($smarty.session.IS_LOGGED)}
-                <a href='Delete/{$champ->ID_champ}' type='button' class='btn btn-danger'>Borrar</a>
-                <a href='Edit/{$champ->ID_champ}' type='button' class='btn btn-danger'>Editar</a>
+                <a href='DeleteChamp/{$champ->ID_champ}' type='button' class='btn btn-danger'>Borrar</a>
+                <a href='EditChamp/{$champ->ID_champ}' type='button' class='btn btn-danger'>Editar</a>
             {/if}
         </li>
     {/foreach}

@@ -12,11 +12,11 @@ class Auth_Controller {
         $this->view = new Auth_View();
     }
 
-    public function ShowFormLogin() {
+    public function Show_Form_Login() {
         $this->view->ShowFormLogin();
     }
 
-    public function validateUser() {
+    public function Validate_User() {
         // toma los datos del form
         $email = $_POST['email'];
         $password = $_POST['password'];
