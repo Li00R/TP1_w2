@@ -13,6 +13,7 @@
             // asigno variables al tpl smarty
             $this->smarty->assign('count', count($champs)); 
             $this->smarty->assign('champs', $champs);
+            var_dump($_SESSION);
 
             // mostrar el tpl
             $this->smarty->display('ChampsList.tpl');
