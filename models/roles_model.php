@@ -28,4 +28,11 @@ class Roles_model {
         $rol = $query->fetchAll(PDO::FETCH_OBJ);       
         return $rol;
     }
+
+    public function Add_Rol($Name) {
+        $query = $this->db->prepare("INSERT INTO roles_table (Rol_name) VALUES (?)");
+        $query->execute([$Name]);
+
+        return $this->db->lastInsertId();
+    }
 }

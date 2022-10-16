@@ -17,6 +17,17 @@ class Roles_controller {
         $this->view->ShowRoles($roles);
     }
 
+    public function Show_form_Add_Rol() {
+        $this->view->ShowFormAddRol();
+    }
+
+    public function Add_Rol() {
+        $Name = $_POST['Name'];
+        $id = $this->model->Add_Rol($Name);
+
+        header("Location: " . BASE_URL);
+    }
+
     public function Edit_Rol() {
 
     }

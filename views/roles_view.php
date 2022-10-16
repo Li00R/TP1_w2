@@ -20,4 +20,11 @@ class Roles_view {
         $this->smarty->display('Header.tpl');
         $this->smarty->display('RolesList.tpl');
     }
+
+    public function ShowFormAddRol() {
+        $this->smarty->assign('title', "Add Rol");
+        $this->smarty->assign('nav_name', "Add Rol"); 
+        $this->smarty->display('Header.tpl');
+        $this->smarty->display('FormAddRol.tpl');
+    }
 }
