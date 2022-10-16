@@ -13,6 +13,7 @@ class Auth_view {
         $this->smarty->assign("error", $error);
         $this->smarty->assign('nav_name', "Login");
         $this->smarty->assign('title', "Login");
+        $this->smarty->display('Header.tpl');
         $this->smarty->display('FormLogin.tpl');
     }
 }
