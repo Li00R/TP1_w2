@@ -30,8 +30,18 @@
             $this->view->ShowChampsByRol($champs, $rol);
         }
         
-        public function Agregar_Champ() {
+        public function Show_form_Add_Champ() {
+            $this->view->ShowFormAddChamp();
+        }
 
+        public function Add_Champ() {
+            $Name = $_POST['Name'];
+            $ID_Rol = $_POST['ID_rol'];
+            $Line = $_POST['Line'];
+
+            $id = $this->model->Add_Champ($Name, $ID_Rol, $Line);
+
+            header("Location: " . BASE_URL); 
         }
 
         public function Edit_Champ($id) {

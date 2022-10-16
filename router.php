@@ -23,18 +23,21 @@ session_start();
 // tabla de ruteo
 switch ($params[0]) {
     case 'Champs':
-        $Champs_Controller->Show_All_Champs();
+        if (!isset($params[1])) {
+            $Champs_Controller->Show_All_Champs();
+        }
+        else {
+            $Champs_Controller->Champ_Detail($params[1]);  
+        }
         break;
     case 'Roles':
+        if (!isset($params[1])) {
         $Roles_Controller->Show_All_Roles();
-        break;
-    case 'ChampDetail':
-        $id= $params[1];
-        $Champs_Controller->Champ_Detail($id);
-        break;
-    case 'ChampsByRol':
-        $id= $params[1];
-        $Champs_Controller->Show_Champs_By_Rol($id);
+        }
+        else {
+            $id= $params[1];
+            $Champs_Controller->Show_Champs_By_Rol($id);
+        }
         break;
     case 'Login':
         $Auth_Controller = new Auth_Controller();
@@ -48,13 +51,23 @@ switch ($params[0]) {
         $authController = new Auth_Controller();
         $authController->Validate_User();
         break;
-    case 'AddChamp':
-        $Champs_Controller->Agregar_Champ();
+    case 'AddChamp':  // vas a tener que chequear que no se agregue repetido
+        if (isset($params[1]) && $params[1]=="SEND") {
+            $Champs_Controller->Add_Champ();
+        }
+        else {
+            $Champs_Controller->Show_form_Add_Champ();
+        }
         break;
     case 'AddRol':
-            $Champs_Controller->Agregar_Champ();
-            break;
-    case 'EditChamp':
+        if (isset($params[1]) && $params[1]=="SEND") {
+            $Roles_Controller->Add_Rol();
+        }
+        else {
+            $Roles_Controller->Show_form_Add_Rol();
+        }
+        break;
+    case 'EditChamp':  // el editar y borrrar fiajte si se puede conservar en la url lo q tenia antes,  porq qdaria carpeta/champs/teemo/edit por lo visto pero hay que ver si funciona
         $id= $params[1];
         $Champs_Controller->Edit_Champ($id);
         break;

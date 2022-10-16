@@ -36,4 +36,10 @@ class Champs_model {
         return $champs;
     }
 
+    public function Add_Champ($Name, $ID_Rol, $Line) {
+        $query = $this->db->prepare("INSERT INTO champs_table (Champ_name, ID_Rol, Line_name) VALUES (?, ?, ?)");
+        $query->execute([$Name, $ID_Rol, $Line]);
+
+        return $this->db->lastInsertId();
+    }
 }
