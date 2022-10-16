@@ -15,7 +15,9 @@ class Roles_view {
         $this->smarty->assign('count', count($roles)); 
         $this->smarty->assign('roles', $roles);
         $this->smarty->assign('title', "Roles");
+        $this->smarty->assign('nav_name', "Roles");
         // mostrar el tpl
+        $this->smarty->display('Header.tpl');
         $this->smarty->display('RolesList.tpl');
     }
 }

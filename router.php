@@ -58,9 +58,17 @@ switch ($params[0]) {
         $id= $params[1];
         $Champs_Controller->Edit_Champ($id);
         break;
+    case 'EditRol':
+        $id= $params[1];
+        $Roles_Controller->Edit_Rol($id);
+        break;
     case 'DeleteChamp':
         $id= $params[1];
         $Champs_Controller->Delete_Champ($id);
+        break;
+    case 'DeleteRol':
+        $id= $params[1];
+        $Roles_Controller->Delete_Rol($id);
         break;
     default:
         echo('404 Page not found');

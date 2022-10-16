@@ -17,5 +17,11 @@ class Roles_controller {
         $this->view->ShowRoles($roles);
     }
 
-    
+    public function Edit_Rol() {
+
+    }
+
+    public function Delete_Rol() {
+
+    }
 }

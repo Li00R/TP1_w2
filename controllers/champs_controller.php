@@ -27,7 +27,7 @@
         public function Show_Champs_By_Rol($id) {
             $champs = $this->model->GetChampsByRol($id);
             $rol = $this->model_rol->GetRol($id);
-            $this->view->ShowChamps($champs, $rol[0]->Rol_name);
+            $this->view->ShowChampsByRol($champs, $rol);
         }
         
         public function Agregar_Champ() {
