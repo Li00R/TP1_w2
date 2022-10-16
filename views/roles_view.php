@@ -14,7 +14,7 @@ class Roles_view {
         // asigno variables al tpl smarty
         $this->smarty->assign('count', count($roles)); 
         $this->smarty->assign('roles', $roles);
-
+        $this->smarty->assign('title', "Roles");
         // mostrar el tpl
         $this->smarty->display('RolesList.tpl');
     }

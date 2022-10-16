@@ -11,6 +11,7 @@ class Auth_view {
 
     function ShowFormLogin($error = null) {
         $this->smarty->assign("error", $error);
+        $this->smarty->assign('title', "Login");
         $this->smarty->display('FormLogin.tpl');
     }
 }

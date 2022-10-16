@@ -27,8 +27,8 @@ switch ($params[0]) {
         $Rols_Controller->Show_All_Roles();
         break;
     case 'ChampDetail':
-        $name= $params[1];
-        $Champs_Controller->Champ_Detail($name);
+        $id= $params[1];
+        $Champs_Controller->Champ_Detail($id);
         break;
     case 'ChampsByRol':
         $id= $params[1];

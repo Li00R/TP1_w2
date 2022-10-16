@@ -22,9 +22,9 @@ class Champs_model {
         return $champs;
     }
 
-    public function GetChamp($name) {
-        $query = $this->db->prepare("SELECT * FROM champs_table LEFT JOIN roles_table ON champs_table.ID_rol = roles_table.ID_rol WHERE Champ_name = ?");
-        $query->execute([$name]);
+    public function GetChamp($id) {
+        $query = $this->db->prepare("SELECT * FROM champs_table LEFT JOIN roles_table ON champs_table.ID_rol = roles_table.ID_rol WHERE ID_champ = ?");
+        $query->execute([$id]);
         $champ = $query->fetchAll(PDO::FETCH_OBJ);       
         return $champ;
     }

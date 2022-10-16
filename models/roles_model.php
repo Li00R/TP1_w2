@@ -21,4 +21,11 @@ class Roles_model {
         $roles = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos      
         return $roles;
     }
+
+    public function GetRol($id) {
+        $query = $this->db->prepare("SELECT * FROM roles_table WHERE ID_rol = ?");
+        $query->execute([$id]);
+        $rol = $query->fetchAll(PDO::FETCH_OBJ);       
+        return $rol;
+    }
 }
