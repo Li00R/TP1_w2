@@ -48,9 +48,12 @@ switch ($params[0]) {
         $authController = new Auth_Controller();
         $authController->Validate_User();
         break;
-    case 'AgregarChamp':
+    case 'AddChamp':
         $Champs_Controller->Agregar_Champ();
         break;
+    case 'AddRol':
+            $Champs_Controller->Agregar_Champ();
+            break;
     case 'EditChamp':
         $id= $params[1];
         $Champs_Controller->Edit_Champ($id);

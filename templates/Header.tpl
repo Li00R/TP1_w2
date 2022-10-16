@@ -35,3 +35,12 @@
               </div>
         </nav>
     </header>
+
+    {* Inicio de la seccion *}
+
+    <h2>{$title}</h2> 
+    {if $title == "Champs"}
+        <a href='AddChamp' type='button' class='btn btn-danger'>Agregar</a>
+    {else}
+        <a href='AddRol' type='button' class='btn btn-danger'>Agregar</a>
+    {/if}

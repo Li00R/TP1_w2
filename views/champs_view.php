@@ -9,12 +9,12 @@
             $this->smarty = new Smarty(); // inicializo Smarty
         }
 
-        function ShowChamps($champs, $nav_title) {
+        function ShowChamps($champs, $title) {
             // asigno variables al tpl smarty
             $this->smarty->assign('count', count($champs)); 
             $this->smarty->assign('champs', $champs);
-            $this->smarty->assign('title', "Champs");
-            $this->smarty->assign('nav_name', $nav_title);
+            $this->smarty->assign('title', $title );
+            $this->smarty->assign('nav_name', $title);
             // mostrar el tpl
             $this->smarty->display('ChampsList.tpl');
         }
@@ -23,6 +23,7 @@
             // asigno variables al tpl smarty
             $this->smarty->assign('Champ', $champ);
             // mostrar el tpl
+            $this->smarty->assign('title', $champ[0]->Champ_name);
             $this->smarty->assign('nav_name', $champ[0]->Champ_name);
             $this->smarty->display('ChampDetail.tpl');
         }
