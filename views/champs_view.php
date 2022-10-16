@@ -29,6 +29,7 @@
             $this->smarty->display('Header.tpl');
             $this->smarty->assign('id', $champ[0]->ID_champ);
             $this->smarty->assign('thing', "Champ");
+            $this->smarty->assign('delete', True);
             if (isset($_SESSION['IS_LOGGED'])) {
                 $this->smarty->display('ItemOptions.tpl');
             }
@@ -44,6 +45,9 @@
             $this->smarty->display('Header.tpl');
             $this->smarty->assign('id', $rol[0]->ID_rol);
             $this->smarty->assign('thing', "Rol");
+            if ($champs == null) {
+                $this->smarty->assign('delete', True);
+            }
             // mostrar el tpl
             if (isset($_SESSION['IS_LOGGED'])) {
                 $this->smarty->display('ItemOptions.tpl');
