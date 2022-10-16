@@ -15,7 +15,7 @@ class Champs_model {
         // 1. abro conexión a la DB
         // ya esta abierta por el constructor de la clase
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM champs_table LEFT JOIN roles_table ON champs_table.ID_rol = roles_table.ID_rol");
+        $query = $this->db->prepare("SELECT * FROM champs_table");
         $query->execute();
         // 3. obtengo los resultados
         $champs = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
