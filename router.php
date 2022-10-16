@@ -6,7 +6,7 @@ require_once './controllers/auth_controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'home'; // acción por defecto
+$action = 'Champs'; // acción por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -16,15 +16,17 @@ $params = explode('/', $action);
 
 // instancio el unico controller que existe por ahora
 $Champs_Controller = new Champs_controller();
-$Rols_Controller = new Roles_controller();
+$Roles_Controller = new Roles_controller();
 
 session_start();
 
 // tabla de ruteo
 switch ($params[0]) {
-    case 'home':
+    case 'Champs':
         $Champs_Controller->Show_All_Champs();
-        $Rols_Controller->Show_All_Roles();
+        break;
+    case 'Roles':
+        $Roles_Controller->Show_All_Roles();
         break;
     case 'ChampDetail':
         $id= $params[1];
