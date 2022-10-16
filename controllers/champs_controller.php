@@ -45,11 +45,12 @@
         }
 
         public function Edit_Champ($id) {
-
+            echo "entro al controler";
+            $this->model->EditChamp($id);
         }
 
         public function Delete_Champ($id) {
-            
+            $this->model->Delete_Champ($id);
         }
 
     }

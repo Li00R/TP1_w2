@@ -67,7 +67,7 @@ switch ($params[0]) {
             $Roles_Controller->Show_form_Add_Rol();
         }
         break;
-    case 'EditChamp':  // el editar y borrrar fiajte si se puede conservar en la url lo q tenia antes,  porq qdaria carpeta/champs/teemo/edit por lo visto pero hay que ver si funciona
+    case 'EditChamp':
         $id= $params[1];
         $Champs_Controller->Edit_Champ($id);
         break;

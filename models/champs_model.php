@@ -42,4 +42,16 @@ class Champs_model {
 
         return $this->db->lastInsertId();
     }
+
+    public function EditChamp($id) {
+        $query = $this->db->prepare('UPDATE champs_table SET Champ_name = "Editado", Line_name = "Editado", ID_rol = 2 WHERE ID_champ = ?');
+        $query->execute([$id]);
+        var_dump($query->errorInfo()); // y eliminar la redireccion
+    }
+
+    function Delete_Champ($id) {
+        $query = $this->db->prepare('DELETE FROM champs_table WHERE ID_champ = ?');
+        $query->execute([$id]);
+        header("Location: " . BASE_URL);
+    }
 }

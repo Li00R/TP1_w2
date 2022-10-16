@@ -28,11 +28,11 @@ class Roles_controller {
         header("Location: " . BASE_URL);
     }
 
-    public function Edit_Rol() {
-
+    public function Edit_Rol($id) {
+        $this->model->EditRol($id);
     }
 
-    public function Delete_Rol() {
-
+    public function Delete_Rol($id) {
+        $this->model->Delete_Rol($id);
     }
 }
