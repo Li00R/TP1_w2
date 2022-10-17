@@ -25,6 +25,26 @@ class Roles_view {
         $this->smarty->assign('title', "Add Rol");
         $this->smarty->assign('nav_name', "Add Rol"); 
         $this->smarty->display('Header.tpl');
-        $this->smarty->display('FormAddRol.tpl');
+        $this->smarty->assign('action', "AddRol");
+        $this->smarty->assign('nav_id', ""); 
+        $this->smarty->display('FormRol.tpl');
+    }
+
+    public function ShowFormEditChamp($id) {
+        $this->smarty->assign('title', "Edit Rol");
+        $this->smarty->assign('nav_name', "Edit Rol"); 
+        $this->smarty->display('Header.tpl');
+        $this->smarty->assign('action', "EditRol");
+        $this->smarty->assign('nav_id', "/" . $id); 
+        $this->smarty->display('FormRol.tpl');
+    }
+
+    public function ShowFormEditRol($id) {
+        $this->smarty->assign('title', "Edit Rol");
+        $this->smarty->assign('nav_name', "Edit Rol"); 
+        $this->smarty->display('Header.tpl');
+        $this->smarty->assign('action', "AddRol");
+        $this->smarty->assign('nav_id', "/" . $id); 
+        $this->smarty->display('FormRol.tpl');
     }
 }

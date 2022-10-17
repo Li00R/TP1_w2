@@ -72,16 +72,26 @@ else {
                 $Roles_Controller->Add_Rol();
             }
             else {
-                $Roles_Controller->Show_form_Add_Rol();
+                $Roles_Controller->Show_Form_Add_Rol();
             }
             break;
         case 'EditChamp':
-            $id= $params[2];
-            $Champs_Controller->Edit_Champ($id);
+            $id = $params[2];
+            if (isset($params[3]) && $params[3]=="SEND") {
+                $Champs_Controller->Edit_Champ($id);
+            }
+            else {
+                $Champs_Controller->Show_Form_Edit_Champ($id);
+            }
             break;
         case 'EditRol':
             $id= $params[2];
-            $Roles_Controller->Edit_Rol($id);
+            if (isset($params[3]) && $params[3]=="SEND") {
+                $Roles_Controller->Edit_Rol($id);
+            }
+            else {
+                $Roles_Controller->Show_Form_Edit_Rol($id);
+            }
             break;
         case 'DeleteChamp':
             $id= $params[2];

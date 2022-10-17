@@ -36,10 +36,10 @@ class Roles_model {
         return $this->db->lastInsertId();
     }
 
-    public function EditRol($id) {
-        $query = $this->db->prepare('UPDATE roles_table SET rol_name = "Editado" WHERE ID_rol = ?');
-        $query->execute([$id]);
-        var_dump($query->errorInfo());
+    public function EditRol($Name, $id) {
+        $query = $this->db->prepare('UPDATE roles_table SET rol_name = ? WHERE ID_rol = ?');
+        $query->execute([$Name, $id]);
+        header("Location: " . BASE_URL);
     }
 
     function Delete_Rol($id) {

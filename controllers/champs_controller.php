@@ -30,8 +30,14 @@
             $this->view->ShowChampsByRol($champs, $rol);
         }
         
-        public function Show_form_Add_Champ() {
-            $this->view->ShowFormAddChamp();
+        public function Show_Form_Add_Champ() {
+            $roles = $this->model_rol->GetRoles();
+            $this->view->ShowFormAddChamp($roles);
+        }
+
+        public function Show_Form_Edit_Champ($id) {
+            $roles = $this->model_rol->GetRoles();
+            $this->view->ShowFormEditChamp($id, $roles);
         }
 
         public function Add_Champ() {
@@ -45,8 +51,11 @@
         }
 
         public function Edit_Champ($id) {
-            echo "entro al controler";
-            $this->model->EditChamp($id);
+            $Name = $_POST['Name'];
+            $ID_Rol = $_POST['ID_rol'];
+            $Line = $_POST['Line'];
+
+            $this->model->EditChamp($id, $Name, $ID_Rol, $Line);
         }
 
         public function Delete_Champ($id) {

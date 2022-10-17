@@ -21,6 +21,10 @@ class Roles_controller {
         $this->view->ShowFormAddRol();
     }
 
+    public function Show_Form_Edit_Rol($id) {
+        $this->view->ShowFormEditChamp($id);
+    }
+
     public function Add_Rol() {
         $Name = $_POST['Name'];
         $id = $this->model->Add_Rol($Name);
@@ -29,7 +33,9 @@ class Roles_controller {
     }
 
     public function Edit_Rol($id) {
-        $this->model->EditRol($id);
+        $Name = $_POST['Name'];
+
+        $this->model->EditRol($Name, $id);
     }
 
     public function Delete_Rol($id) {

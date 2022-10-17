@@ -51,11 +51,24 @@
             $this->smarty->display('ChampsList.tpl');
         }
 
-        public function ShowFormAddChamp() {
+        public function ShowFormAddChamp($roles) {
             $this->smarty->assign('nav_name', "Add Champ");
             $this->smarty->assign('title', "Add Champ");
             $this->smarty->display('Header.tpl');
-            $this->smarty->display('FormAddChamp.tpl');
+            $this->smarty->assign('roles', $roles);
+            $this->smarty->assign('action', 'AddChamp');
+            $this->smarty->assign('nav_id', ""); 
+            $this->smarty->display('FormChamp.tpl');
+        }
+
+        public function ShowFormEditChamp($id, $roles) {
+            $this->smarty->assign('nav_name', "Edit Champ");
+            $this->smarty->assign('title', "Edit Champ");
+            $this->smarty->display('Header.tpl');
+            $this->smarty->assign('roles', $roles);
+            $this->smarty->assign('action', 'EditChamp');
+            $this->smarty->assign('nav_id', '/' . $id);
+            $this->smarty->display('FormChamp.tpl');
         }
         
     }
