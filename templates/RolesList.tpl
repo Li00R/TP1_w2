@@ -1,7 +1,7 @@
 <!-- lista de Roles -->
 {if isset($smarty.session.IS_LOGGED)}    
     {if $title == "Roles"}
-        <a href='AddRol' type='button' class='btn btn-danger'>Agregar</a>
+        <a href='Admin/AddRol' type='button' class='btn btn-danger'>Agregar</a>
     {/if}
 {/if}
 <ul class="list-group">

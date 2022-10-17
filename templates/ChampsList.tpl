@@ -1,7 +1,7 @@
 <!-- lista de Champs -->
 {if isset($smarty.session.IS_LOGGED)}    
     {if $title == "Champs"}
-        <a href='AddChamp' type='button' class='btn btn-danger'>Agregar</a>
+        <a href='Admin/AddChamp' type='button' class='btn btn-danger'>Agregar</a>
     {/if}
 {/if}
 <ul class="list-group">
