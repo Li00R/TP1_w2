@@ -3,9 +3,12 @@
 class Roles_model {
 
     private $db;
+    private $pdo;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_lol;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_lol;charset=utf8', 'root', '', array(
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+          ));
     }
 
     /**
@@ -43,8 +46,14 @@ class Roles_model {
     }
 
     function Delete_Rol($id) {
+        try {
         $query = $this->db->prepare('DELETE FROM roles_table WHERE ID_rol = ?');
         $query->execute([$id]);
+        }
+        catch (PDOException $e) {
+            error_log('PDO Exception: '.$e->getMessage());
+            die('No se puede borrar este Rol');
+        }
         header("Location: " . BASE_URL);
     }
 }
