@@ -2,7 +2,7 @@
 
 require_once './libs/smarty-4.2.1/libs/Smarty.class.php';
 
-class Roles_view {
+class RolesView {
     private $smarty;
     
     

@@ -15,15 +15,15 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 // instancio el unico controller que existe por ahora
-$Champs_Controller = new Champs_controller();
-$Roles_Controller = new Roles_controller();
+$Champs_Controller = new ChampsController();
+$Roles_Controller = new RolesController();
 
 
 // tabla de ruteo
 
 switch ($params[0]) {         
     case 'Champs':
-        if (!isset($params[1])) {
+        if (!isset($params[1]) || $params[1] == "") {
             $Champs_Controller->Show_All_Champs();
         }
         else {
@@ -40,15 +40,15 @@ switch ($params[0]) {
         }
         break;
     case 'Login':
-        $Auth_Controller = new Auth_Controller();
+        $Auth_Controller = new AuthController();
         $Auth_Controller->Show_Form_Login();
         break;
     case "Logout":
-        $Auth_Controller = new Auth_Controller();
+        $Auth_Controller = new AuthController();
         $Auth_Controller->Logout();
         break;
     case 'validate':
-        $authController = new Auth_Controller();
+        $authController = new AuthController();
         $authController->Validate_User();
         break;
     case 'AddChamp': 

@@ -1,7 +1,7 @@
 <?php
     require_once './libs/smarty-4.2.1/libs/Smarty.class.php';
 
-    class Champs_view {
+    class ChampsView {
         private $smarty;
         
         
@@ -22,10 +22,10 @@
 
         function ShowChampDetail($champ) {
             $this->smarty->assign('Champ', $champ);
-            $this->smarty->assign('title', $champ[0]->Champ_name);
-            $this->smarty->assign('nav_name', $champ[0]->Champ_name);
+            $this->smarty->assign('title', $champ->Champ_name);
+            $this->smarty->assign('nav_name', $champ->Champ_name);
             $this->smarty->display('Header.tpl');
-            $this->smarty->assign('id', $champ[0]->ID_champ);
+            $this->smarty->assign('id', $champ->ID_champ);
             $this->smarty->assign('thing', "Champ");
             if (isset($_SESSION['IS_LOGGED'])) {
                 $this->smarty->assign('delete', True);

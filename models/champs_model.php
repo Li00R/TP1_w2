@@ -1,6 +1,6 @@
 <?php
 
-class Champs_model {
+class ChampsModel {
 
     private $db;
 
@@ -25,7 +25,7 @@ class Champs_model {
     public function GetChamp($id) {
         $query = $this->db->prepare("SELECT * FROM champs_table LEFT JOIN roles_table ON champs_table.ID_rol = roles_table.ID_rol WHERE ID_champ = ?");
         $query->execute([$id]);
-        $champ = $query->fetchAll(PDO::FETCH_OBJ);       
+        $champ = $query->fetch(PDO::FETCH_OBJ);       
         return $champ;
     }
     

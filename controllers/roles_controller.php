@@ -4,14 +4,14 @@ require_once './models/roles_model.php';
 require_once './views/roles_view.php';
 require_once './helpers/auth_helper.php';
 
-class Roles_controller {
+class RolesController {
     private $model;
     private $view;
     private $auth_helper;
 
     public function __construct() {
-        $this->model = new Roles_model();
-        $this->view = new Roles_view();
+        $this->model = new RolesModel();
+        $this->view = new RolesView();
         $this->auth_helper = new AuthHelper();
     }
 
@@ -32,17 +32,18 @@ class Roles_controller {
 
     public function Add_Rol() {
         $this->auth_helper->checkLoggedIn();
-        $Name = $_POST['Name'];
-        $id = $this->model->Add_Rol($Name);
-
+        if (isset($_POST['Name']) && $_POST['Name'] != "") {
+            $this->model->Add_Rol($_POST['Name']);
+        }
         header("Location: " . BASE_URL);
     }
 
     public function Edit_Rol($id) {
         $this->auth_helper->checkLoggedIn();
-        $Name = $_POST['Name'];
-
-        $this->model->EditRol($Name, $id);
+        if (isset($_POST['Name']) && $_POST['Name'] != "" && isset($id) && $id != "") {
+            $this->model->Add_Rol($_POST['Name'], $id);
+        }
+        header("Location: " . BASE_URL);
     }
 
     public function Delete_Rol($id) {

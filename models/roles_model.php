@@ -1,6 +1,6 @@
 <?php
 
-class Roles_model {
+class RolesModel {
 
     private $db;
     private $pdo;
@@ -42,7 +42,6 @@ class Roles_model {
     public function EditRol($Name, $id) {
         $query = $this->db->prepare('UPDATE roles_table SET rol_name = ? WHERE ID_rol = ?');
         $query->execute([$Name, $id]);
-        header("Location: " . BASE_URL);
     }
 
     function Delete_Rol($id) {
@@ -54,6 +53,5 @@ class Roles_model {
             error_log('PDO Exception: '.$e->getMessage());
             die('No se puede borrar este Rol');
         }
-        header("Location: " . BASE_URL);
     }
 }

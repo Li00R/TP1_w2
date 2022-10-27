@@ -3,13 +3,13 @@
 require_once './models/user_model.php';
 require_once './views/auth_view.php';
 
-class Auth_Controller {
+class AuthController {
     private $model;
     private $view;
 
     public function __construct() {
-        $this->model = new User_model();
-        $this->view = new Auth_View();
+        $this->model = new Usermodel();
+        $this->view = new AuthView();
     }
 
     public function Show_Form_Login() {

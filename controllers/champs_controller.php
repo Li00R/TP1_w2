@@ -4,16 +4,16 @@
     require_once './models/roles_model.php';
     require_once './helpers/auth_helper.php';
 
-    class Champs_controller {
+    class ChampsController {
         private $model;
         private $model_rol;
         private $view;
         private $auth_helper;
 
         public function __construct() {
-            $this->model = new Champs_model();
-            $this->model_rol = new Roles_model();
-            $this->view = new Champs_view();
+            $this->model = new ChampsModel();
+            $this->model_rol = new RolesModel();
+            $this->view = new ChampsView();
             $this->auth_helper = new AuthHelper();
         }
 
@@ -24,13 +24,23 @@
 
         public function Champ_Detail($id) {
             $champ = $this->model->GetChamp($id);
-            $this->view->ShowChampDetail($champ);
+            if ($champ != null) {
+                $this->view->ShowChampDetail($champ);
+            }
+            else {
+                header("Location: " . BASE_URL);
+            }
         }
 
         public function Show_Champs_By_Rol($id) {
             $champs = $this->model->GetChampsByRol($id);
             $rol = $this->model_rol->GetRol($id);
-            $this->view->ShowChampsByRol($champs, $rol);
+            if ($rol != null) {
+                $this->view->ShowChampsByRol($champs, $rol);
+            }
+            else {
+               header("Location: " . BASE_URL); 
+            }
         }
         
         public function Show_Form_Add_Champ() {
@@ -47,22 +57,18 @@
 
         public function Add_Champ() {
             $this->auth_helper->checkLoggedIn();
-            $Name = $_POST['Name'];
-            $ID_Rol = $_POST['ID_rol'];
-            $Line = $_POST['Line'];
-
-            $id = $this->model->Add_Champ($Name, $ID_Rol, $Line);
-
-            header("Location: " . BASE_URL); 
+            if (isset($_POST['Name']) && $_POST['Name'] != "" && isset($_POST['Line']) && $_POST['Line'] != "") {
+                $this->model->Add_Champ($_POST['Name'], $_POST['ID_rol'], $_POST['Line']);
+            }    
+            header("Location: " . BASE_URL);
         }
 
         public function Edit_Champ($id) {
             $this->auth_helper->checkLoggedIn();
-            $Name = $_POST['Name'];
-            $ID_Rol = $_POST['ID_rol'];
-            $Line = $_POST['Line'];
-
-            $this->model->EditChamp($id, $Name, $ID_Rol, $Line);
+            if (isset($_POST['Name']) && $_POST['Name'] != "" && isset($_POST['Line']) && $_POST['Line'] != "" && isset($id) && $id != "") {
+                $this->model->EditChamp($id, $_POST['Name'], $_POST['ID_rol'], $_POST['Line']);
+            }    
+            header("Location: " . BASE_URL);
         }
 
         public function Delete_Champ($id) {
