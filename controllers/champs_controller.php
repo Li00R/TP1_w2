@@ -52,7 +52,8 @@
         public function Show_Form_Edit_Champ($id) {
             $this->auth_helper->checkLoggedIn();
             $roles = $this->model_rol->GetRoles();
-            $this->view->ShowFormEditChamp($id, $roles);
+            $champ = $this->model->GetChamp($id);
+            $this->view->ShowFormEditChamp($champ, $roles);
         }
 
         public function Add_Champ() {

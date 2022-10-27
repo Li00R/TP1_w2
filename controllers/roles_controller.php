@@ -27,7 +27,8 @@ class RolesController {
 
     public function Show_Form_Edit_Rol($id) {
         $this->auth_helper->checkLoggedIn();
-        $this->view->ShowFormEditChamp($id);
+        $rol = $this->model->GetRol($id);
+        $this->view->ShowFormEditRol($rol);
     }
 
     public function Add_Rol() {
@@ -41,7 +42,7 @@ class RolesController {
     public function Edit_Rol($id) {
         $this->auth_helper->checkLoggedIn();
         if (isset($_POST['Name']) && $_POST['Name'] != "" && isset($id) && $id != "") {
-            $this->model->Add_Rol($_POST['Name'], $id);
+            $this->model->EditRol($_POST['Name'], $id);
         }
         header("Location: " . BASE_URL);
     }
@@ -49,5 +50,6 @@ class RolesController {
     public function Delete_Rol($id) {
         $this->auth_helper->checkLoggedIn();
         $this->model->Delete_Rol($id);
+        header("Location: " . BASE_URL);
     }
 }

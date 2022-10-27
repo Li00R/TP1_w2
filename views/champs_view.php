@@ -37,10 +37,10 @@
         function ShowChampsByRol($champs, $rol) {
             $this->smarty->assign('count', count($champs)); 
             $this->smarty->assign('champs', $champs);
-            $this->smarty->assign('title', $rol[0]->Rol_name);
-            $this->smarty->assign('nav_name', $rol[0]->Rol_name);
+            $this->smarty->assign('title', $rol->Rol_name);
+            $this->smarty->assign('nav_name', $rol->Rol_name);
             $this->smarty->display('Header.tpl');
-            $this->smarty->assign('id', $rol[0]->ID_rol);
+            $this->smarty->assign('id', $rol->ID_rol);
             $this->smarty->assign('thing', "Rol");
             if (isset($_SESSION['IS_LOGGED'])) {
                 if ($champs == null) {
@@ -61,13 +61,14 @@
             $this->smarty->display('FormChamp.tpl');
         }
 
-        public function ShowFormEditChamp($id, $roles) {
+        public function ShowFormEditChamp($champ, $roles) {
             $this->smarty->assign('nav_name', "Edit Champ");
             $this->smarty->assign('title', "Edit Champ");
             $this->smarty->display('Header.tpl');
             $this->smarty->assign('roles', $roles);
             $this->smarty->assign('action', 'EditChamp');
-            $this->smarty->assign('nav_id', '/' . $id);
+            $this->smarty->assign('nav_id', '/' . $champ->ID_champ);
+            $this->smarty->assign('champ', $champ);
             $this->smarty->display('FormChamp.tpl');
         }
         
